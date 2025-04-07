@@ -1,0 +1,33 @@
+<p-toolbar styleClass="surface-0 shadow-2 px-3 py-2">
+  <ng-template #start>
+    <!-- Logo -->
+    <img src="assets/logo.png" alt="Logo" height="40" class="mr-3" />
+
+    <!-- Botón de Categorías -->
+    <p-button label="Categorías" icon="pi pi-bars" class="mr-3"
+              (click)="toggleMegaMenu()" severity="secondary"></p-button>
+  </ng-template>
+
+  <ng-template #center>
+    <!-- Cuadro de búsqueda -->
+    <p-iconfield iconPosition="left">
+      <p-inputicon styleClass="pi pi-search" />
+      <input type="text" pInputText placeholder="Buscar productos..." class="w-24rem" />
+    </p-iconfield>
+  </ng-template>
+
+  <ng-template #end>
+    <!-- Botón de carrito -->
+    <p-button icon="pi pi-shopping-cart" class="mr-2" severity="secondary" label="Carrito"></p-button>
+
+    <!-- Botón de iniciar sesión -->
+    <p-button label="Iniciar sesión" icon="pi pi-user" severity="secondary"></p-button>
+  </ng-template>
+</p-toolbar>
+
+<!-- MegaMenu debajo del toolbar, se muestra solo si megaMenuVisible es true -->
+<p-megamenu *ngIf="megaMenuVisible"
+            [model]="items"
+            [ngStyle]="{ 'width': '250px', 'height': 'auto', 'margin-top': '10px', 'border-radius': '2rem' }"
+            class="p-3 bg-surface-0 shadow-2 dark:bg-surface-900">
+</p-megamenu>
